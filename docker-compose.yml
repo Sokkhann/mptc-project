@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  frontend:
+    image: vue-frontend
+    build:
+      context: ./movie-rating
+    ports:
+      - "5173:5173" # Map host port 5173 to container port 5173
+    depends_on:
+      - backend
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5173/health"]  # Modify this URL based on your frontend health check endpoint
+      interval: 30s
+      retries: 3
+      start_period: 10s
+      timeout: 10s
+
+  backend:
+    image: spring-backend
+    build:
+      context: ./backend/movie-rating
+    ports:
+      - "8080:8080" # Map host port 8080 to container port 8080
+    environment:
+      - SPRING_DATA_MONGODB_URI=mongodb://mongo:27017/mydb
+    depends_on:
+      - mongo
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
+      interval: 30s
+      retries: 3
+      start_period: 10s
+      timeout: 10s
+
+  mongo:
+    image: mongo:6.0
+    container_name: mongo
+    ports:
+      - "27017:27017" # Map host port 27017 to container port 27017
+    volumes:
+      - mongo-data:/data/db
+    healthcheck:
+      test: ["CMD", "mongo", "--eval", "db.runCommand({ connectionStatus: 1 })"]
+      interval: 30s
+      retries: 3
+      start_period: 10s
+      timeout: 10s
+
+volumes:
+  mongo-data:
