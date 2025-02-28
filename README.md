@@ -112,6 +112,18 @@ Ensure you have the following installed on your machine:
 - The entire application is containerized using Docker Compose.
 - Each service (frontend, backend, and MongoDB) runs in its own container.
 
-## Getting Started
+## Access the Application
 
+- **Frontend**: [http://localhost:5173](http://localhost:5173)
+- **Backend**: [http://localhost:8080](http://localhost:8080)
+## API Endpoints
+
+The backend provides the following RESTful API endpoints:
+
+- **GET `/movies`**: Fetch a list of movies from TMDB.
+- **POST `/movies/{movieId}/rating`**: Rate a movie (rating range: 0.5 to 10).
+- **POST `/movies/{movieId}/review`**: Add a review for a movie.
+- **GET `/movies/{movieId}/reviews`**: Get all reviews for a specific movie, sorted by the latest.
+- **POST `/favorites`**: Add a movie to the user's favorite list.
+- **DELETE `/favorites/{movieId}`**: Remove a movie from the user's favorite list.
    
