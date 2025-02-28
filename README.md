@@ -33,6 +33,7 @@ Movie Rating is a web application that allows users to rate, review, and add mov
 - **Moderate Reviews**: Admins can remove inappropriate reviews if necessary.
 
 ## Project Structure
+```
 Movie-Rating
    ├── backend/
    │ ├── src/
@@ -54,6 +55,7 @@ Movie-Rating
    ├── docker-compose.yml
    ├── README.md
    └── .gitignore
+```
 ### Frontend (`movie-rating`):
 - Built using Vue.js and fetches movie data from the TMDB API.
 - Components for rating, reviewing, and favoriting movies.
