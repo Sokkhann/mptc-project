@@ -1,5 +1,3 @@
-﻿# mptc-project
-
 # Movie Rating
 
 Movie Rating is a web application that allows users to rate, review, and add movies to their favorite list. The application retrieves movie data from the TMDB API and integrates with a custom API built with Spring Boot to handle user interactions like ratings, reviews, and favorites.
@@ -56,6 +54,50 @@ Movie-Rating
    ├── README.md
    └── .gitignore
 ```
+
+
+## Directory Overview
+
+### `backend/`
+- **src/**: Contains the source code for the backend application.
+  - **main/**: Primary directory for backend logic.
+    - **java/**: Java source files.
+    - **resources/**: Configuration files, static resources, etc.
+- **Dockerfile**: Defines the Docker image for the backend service.
+- **pom.xml**: Maven configuration file for dependency management and build processes.
+
+### `movie-rating/`
+- **src/**: Contains the frontend source code.
+  - **assets/**: Static assets like images, stylesheets, etc.
+  - **components/**: Reusable Vue.js components.
+  - **views/**: Page-level Vue.js components.
+  - **App.vue**: Root Vue component for the frontend application.
+- **Dockerfile**: Defines the Docker image for the frontend service.
+- **package.json**: Node.js project metadata and dependency management file.
+
+### `docker-compose.yml`
+- Configuration file for orchestrating multiple Docker containers (e.g., frontend, backend, database).
+
+### `README.md`
+- Documentation file providing an overview of the project, setup instructions, and usage guidelines.
+
+### `.gitignore`
+- Specifies files and directories to be ignored by Git version control.
+
+---
+
+## Getting Started
+
+### Prerequisites
+Ensure you have the following installed on your machine:
+- Docker
+- Docker Compose
+
+### Installation and Setup
+
+1. **Navigate to the project directory**:
+   ```bash
+   cd movie-rating
 ### Frontend (`movie-rating`):
 - Built using Vue.js and fetches movie data from the TMDB API.
 - Components for rating, reviewing, and favoriting movies.
